@@ -7,6 +7,8 @@ fs.appendFileSync(
 	"This second line was appended to the first line."
 );
 
+fs.appendFileSync("note.txt", "\nTest the new line!")
+
 // import { writeFileSync, appendFileSync } from "fs";
 
 // writeFileSync("message.txt", "Line one.\n");
