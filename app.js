@@ -1,15 +1,5 @@
-const fs = require("fs");
+const add = require("./utils");
+const notes = require("./notes");
 
-fs.writeFileSync("note.txt", "This file was created by Node.js.");
-
-fs.appendFileSync(
-	"note.txt",
-	"This second line was appended to the first line."
-);
-
-fs.appendFileSync("note.txt", "\nTest the new line!")
-
-// import { writeFileSync, appendFileSync } from "fs";
-
-// writeFileSync("message.txt", "Line one.\n");
-// appendFileSync("message.txt", "Line two.\n");
+console.log(add(3, 4));
+console.log(notes());
