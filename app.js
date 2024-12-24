@@ -12,12 +12,14 @@ const log = console.log;
 
 log(chalk.green.bold("Success!"));
 log(chalk.blue("Hello") + " World" + chalk.red.bold("!"));
+log(chalk.blue.bgRed.inverse.bold("Hello world!"));
+log(chalk.bgBlue.red.inverse.bold("Hello world!"));
 log(chalk.blue.bgRed.bold("Hello world!"));
-log(chalk.blue("Hello", "World!", "Foo", "bar", "biz", "baz"));
+
 log(chalk.red("Hello", chalk.underline.bgBlue("world") + "!"));
 
 log(chalk.rgb(200, 45, 67).underline("Underlined reddish color"));
-log(`
+log(chalk`
     CPU: ${chalk.red("90%")}
     RAM: ${chalk.green("40%")}
     DISK: ${chalk.yellow("70%")}
