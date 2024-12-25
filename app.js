@@ -12,9 +12,6 @@ const LIST = "list";
 console.log(getNotes());
 const log = console.log;
 
-// Customized version
-// yargs.version("2.0.0");
-
 //Creat ADD command
 yargs.command({
 	command: ADD,
@@ -52,9 +49,4 @@ yargs.command({
 	},
 });
 
-// console.log(validator.isEmail("shaghay3gh@gmail.com"));
-// console.log(validator.isURL("http://google.com"));
-// const command = process.argv[2];
-
-log(process.argv);
 log(yargs.argv);
