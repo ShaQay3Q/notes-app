@@ -27,7 +27,7 @@ yargs.command({
 			type: "string",
 		},
 		body: {
-			describe: "content of the note...",
+			describe: "content of the note",
 			demandOption: true,
 			type: "string",
 		},
