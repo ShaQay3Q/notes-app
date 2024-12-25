@@ -26,11 +26,17 @@ yargs.command({
 			//! input type
 			type: "string",
 		},
+		body: {
+			describe: "content of the note...",
+			demandOption: true,
+			type: "string",
+		},
 	},
 	// need a fucntion value so that the command will be exucuted
 	handler: (argv) => {
 		log(chalk.blue.bold("New note has been added."));
 		console.log(`title: ${argv.title}`);
+		log(`body: ${argv.body}`);
 	},
 });
 
