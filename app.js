@@ -46,8 +46,15 @@ yargs.command({
 yargs.command({
 	command: REMOVE,
 	describe: "Remove a note",
-	handler: () => {
-		log(chalk.blue.bold("New note has been added."));
+	builder: {
+		title: {
+			describe: "Note title",
+			demandOption: true,
+			type: "string",
+		},
+	},
+	handler: (argv) => {
+		log(chalk.blue.bold(`${argv.title} was successfully removed!`));
 	},
 });
 
