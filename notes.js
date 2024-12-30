@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { title } = require("process");
 const getNotes = () => {
 	return "Your notes...";
 };
@@ -43,11 +42,10 @@ const addNote = (title, body) => {
 // API for removing notes
 const removeNotes = (title) => {
 	const notes = loadNotes();
-	const theNote = notes.filter((note) => note.title === title);
-	if (theNote.length === 0) {
+	const remainedNotes = notes.filter((note) => note.title !== title);
+	if (remainedNotes.length === notes.length) {
 		console.log(`No "${title}" note title was found!`);
 	} else {
-		const remainedNotes = notes.filter((note) => note.title !== title);
 		saveNotes(remainedNotes);
 		console.log(`${title} was successfully removed!`);
 	}

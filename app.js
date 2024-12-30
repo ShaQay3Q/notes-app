@@ -12,6 +12,8 @@ const REMOVE = "remove";
 const READ = "read";
 const LIST = "list";
 
+yargs.version("1.0.0");
+
 // console.log(getNotes());
 const log = console.log;
 
