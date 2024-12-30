@@ -21,21 +21,13 @@ const saveNotes = (notes) => {
 	fs.writeFileSync("notes.json", notesJSON);
 };
 
+// API for addin notes
 const addNote = (title, body) => {
 	const notes = loadNotes();
-	// for (const note of notes){
-	// 	if (note.title === title){
 
-	// 	} else {
+	const douplicateNotes = notes.filter((note) => note.title === title);
 
-	// 	}
-	// }
-
-	const douplicateNotes = notes.filter((note) => {
-		return note.title === title;
-	});
-
-	if (!douplicateNotes) {
+	if (douplicateNotes.length === 0) {
 		notes.push({
 			// property : value
 			title: title,
