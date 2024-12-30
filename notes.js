@@ -21,7 +21,7 @@ const saveNotes = (notes) => {
 	fs.writeFileSync("notes.json", notesJSON);
 };
 
-// API for addin notes
+// API for adding notes
 const addNote = (title, body) => {
 	const notes = loadNotes();
 
@@ -40,7 +40,21 @@ const addNote = (title, body) => {
 	}
 };
 
+// API for removing notes
+const removeNotes = (title) => {
+	const notes = loadNotes();
+	const theNote = notes.filter((note) => note.title === title);
+	if (theNote.length === 0) {
+		console.log(`No "${title}" note title was found!`);
+	} else {
+		const remainedNotes = notes.filter((note) => note.title !== title);
+		saveNotes(remainedNotes);
+		console.log(`${title} was successfully removed!`);
+	}
+};
+
 module.exports = {
 	getNotes: getNotes,
 	addNote: addNote,
+	removeNotes: removeNotes,
 };

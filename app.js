@@ -54,7 +54,8 @@ yargs.command({
 		},
 	},
 	handler: (argv) => {
-		log(chalk.blue.bold(`${argv.title} was successfully removed!`));
+		notes.removeNotes(argv.title);
+		// log(chalk.blue.bold(`${argv.title} was successfully removed!`));
 	},
 });
 
