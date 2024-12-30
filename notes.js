@@ -37,7 +37,7 @@ const addNote = (title, body) => {
 		console.log(chalk.bold("New note added!"));
 	} else {
 		console.log(
-			chalk.yellow.bold("Title", chalk.blue(`${title}`), "aleady exist!")
+			chalk.yellow.bold("Title", chalk.inverse(`${title}`), "aleady exist!")
 		);
 	}
 };
