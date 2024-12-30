@@ -21,14 +21,31 @@ const saveNotes = (notes) => {
 	fs.writeFileSync("notes.json", notesJSON);
 };
 
-const addNote = (tile, body) => {
+const addNote = (title, body) => {
 	const notes = loadNotes();
-	notes.push({
-		// property : value
-		title: tile,
-		body: body,
+	// for (const note of notes){
+	// 	if (note.title === title){
+
+	// 	} else {
+
+	// 	}
+	// }
+
+	const douplicateNotes = notes.filter((note) => {
+		return note.title === title;
 	});
-	saveNotes(notes);
+
+	if (!douplicateNotes) {
+		notes.push({
+			// property : value
+			title: title,
+			body: body,
+		});
+		saveNotes(notes);
+		console.log("New note added!");
+	} else {
+		console.log("Note title taken!");
+	}
 };
 
 module.exports = {
