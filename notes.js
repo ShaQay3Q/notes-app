@@ -46,8 +46,9 @@ const addNote = (title, body) => {
 const removeNotes = (title) => {
 	const notes = loadNotes();
 	const remainedNotes = notes.filter((note) => note.title !== title);
+	//! use "remainedNotes.length < notes.length" as alternative condiction
 	if (remainedNotes.length === notes.length) {
-		console.log(chalk.red.bold(`No "${title}" found!`));
+		console.log(chalk.red.inverse.bold(`No "${title}" found!`));
 	} else {
 		saveNotes(remainedNotes);
 		console.log(chalk.green.bold(`${title} successfully removed!`));
