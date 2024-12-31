@@ -55,6 +55,8 @@ const removeNotes = (title) => {
 const getNotes = () => {
 	const notes = loadNotes();
 	if (notes.length > 0) {
+		console.log(chalk.white.inverse("Your Notes:"));
+
 		notes.forEach((note) => console.log("title: " + chalk.green(note.title)));
 	} else console.log(chalk.red.bold("There is no notes!"));
 };
