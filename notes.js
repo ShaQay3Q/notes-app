@@ -1,6 +1,10 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
+const getNotes = () => {
+	return "Your notes...";
+};
+
 // Load ALL THE NOTES from the file
 const loadNotes = () => {
 	try {
@@ -52,7 +56,7 @@ const removeNotes = (title) => {
 	}
 };
 
-const getNotes = () => {
+const listNotes = () => {
 	const notes = loadNotes();
 	if (notes.length > 0) {
 		console.log(chalk.white.inverse("Your Notes:"));
@@ -65,4 +69,5 @@ module.exports = {
 	getNotes: getNotes,
 	addNote: addNote,
 	removeNotes: removeNotes,
+	listNotes: listNotes,
 };
