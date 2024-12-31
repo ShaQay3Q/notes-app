@@ -77,7 +77,7 @@ yargs.command({
 	command: LIST,
 	describe: "List all notes",
 	handler() {
-		log(chalk.blue.bold("Listing out all notes..."));
+		notes.getNotes();
 	},
 });
 

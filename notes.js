@@ -1,8 +1,5 @@
 const fs = require("fs");
 const chalk = require("chalk");
-const getNotes = () => {
-	return "Your notes...";
-};
 
 // Load ALL THE NOTES from the file
 const loadNotes = () => {
@@ -53,6 +50,13 @@ const removeNotes = (title) => {
 		saveNotes(remainedNotes);
 		console.log(chalk.green.bold(`${title} successfully removed!`));
 	}
+};
+
+const getNotes = () => {
+	const notes = loadNotes();
+	if (notes.length > 0) {
+		notes.forEach((note) => console.log("title: " + chalk.green(note.title)));
+	} else console.log(chalk.red.bold("There is no notes!"));
 };
 
 module.exports = {
