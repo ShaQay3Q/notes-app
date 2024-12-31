@@ -36,7 +36,8 @@ yargs.command({
 		},
 	},
 	// need a fucntion value so that the command will be exucuted
-	handler: (argv) => {
+	handler(argv) {
+		//! for Methods it is better NOT to use arrow functions
 		notes.addNote(argv.title, argv.body);
 		// log(chalk.blue.bold("New note has been added."));
 		// console.log(`title: ${argv.title}`);
@@ -55,7 +56,8 @@ yargs.command({
 			type: "string",
 		},
 	},
-	handler: (argv) => {
+	//! ES6 method definition syntax
+	handler(argv) {
 		notes.removeNotes(argv.title);
 		// log(chalk.blue.bold(`${argv.title} was successfully removed!`));
 	},
@@ -65,7 +67,7 @@ yargs.command({
 yargs.command({
 	command: READ,
 	describe: "Read a note",
-	handler: () => {
+	handler() {
 		log(chalk.blue.bold("Note content"));
 	},
 });
@@ -74,7 +76,7 @@ yargs.command({
 yargs.command({
 	command: LIST,
 	describe: "List all notes",
-	handler: () => {
+	handler() {
 		log(chalk.blue.bold("Listing out all notes..."));
 	},
 });
