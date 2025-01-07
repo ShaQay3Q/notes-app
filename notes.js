@@ -27,6 +27,8 @@ const addNote = (title, body) => {
 	// in a case douplicateNote doesn't return any result, the return value is "undefined"
 	// ==> if (douplicateNote === undefined) works
 
+	debugger;
+
 	if (!douplicateNote) {
 		notes.push({
 			// property : value

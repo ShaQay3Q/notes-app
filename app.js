@@ -1,11 +1,5 @@
-// const add = require("./utils");
-// const { getNotes, addNote } = require("./notes.js");
 const notes = require("./notes.js");
-const validator = require("validator");
-const chalk = require("chalk");
 const yargs = require("yargs");
-const { type } = require("os");
-const { title } = require("process");
 
 const ADD = "add";
 const REMOVE = "remove";
@@ -39,9 +33,6 @@ yargs.command({
 	handler(argv) {
 		//! for Methods it is better NOT to use arrow functions
 		notes.addNote(argv.title, argv.body);
-		// log(chalk.blue.bold("New note has been added."));
-		// console.log(`title: ${argv.title}`);
-		// log(`body: ${argv.body}`);
 	},
 });
 
@@ -59,7 +50,6 @@ yargs.command({
 	//! ES6 method definition syntax
 	handler(argv) {
 		notes.removeNote(argv.title);
-		// log(chalk.blue.bold(`${argv.title} was successfully removed!`));
 	},
 });
 
@@ -89,5 +79,3 @@ yargs.command({
 });
 
 yargs.parse();
-
-// log(yargs.argv);
