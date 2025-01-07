@@ -26,9 +26,10 @@ const saveNotes = (notes) => {
 const addNote = (title, body) => {
 	const notes = loadNotes();
 
-	const douplicateNotes = notes.filter((note) => note.title === title);
+	// const douplicateNotes = notes.filter((note) => note.title === title); // keep iterating over the whole array even after finding the match
+	const douplicateNote = notes.find((note) => note.title === title); // stop itering over the array after it found the match
 
-	if (douplicateNotes.length === 0) {
+	if (!douplicateNote) {
 		notes.push({
 			// property : value
 			title: title,
