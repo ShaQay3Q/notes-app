@@ -38,10 +38,10 @@ const addNote = (title, body) => {
 			body: body,
 		});
 		saveNotes(notes);
-		console.log(chalk.bold("New note added!"));
+		console.log(chalk.green.inverse.bold("New note added!"));
 	} else {
 		console.log(
-			chalk.yellow.bold("Title", chalk.inverse(`${title}`), "aleady exist!")
+			chalk.red.inverse.bold(chalk.inverse(`${title}`), "is aleady exist!")
 		);
 	}
 };
@@ -52,10 +52,10 @@ const removeNote = (title) => {
 	const remainedNotes = notes.filter((note) => note.title !== title);
 	//! use "remainedNotes.length < notes.length" as alternative condiction
 	if (remainedNotes.length === notes.length) {
-		console.log(chalk.red.inverse.bold(`No "${title}" found!`));
+		console.log(chalk.red.inverse.bold("Note not found!"));
 	} else {
 		saveNotes(remainedNotes);
-		console.log(chalk.green.bold(`${title} successfully removed!`));
+		console.log(chalk.green.inverse.bold(`${title} successfully removed!`));
 	}
 };
 
@@ -65,25 +65,19 @@ const listNotes = () => {
 		console.log(chalk.white.inverse("Your Notes:"));
 
 		notes.forEach((note) => console.log("title: " + chalk.green(note.title)));
-	} else console.log(chalk.red.bold("There is no notes!"));
+	} else console.log(chalk.red.inverse.bold("Note not found!"));
 };
 
 const readNote = (title) => {
 	const notes = loadNotes();
-	console.log(notes);
 
 	const note = notes.find((note) => note.title === title);
-	console.log(note);
 
 	if (note) {
-		console.log(chalk.white.inverse("Your Note:"));
-		// console.log(`title: ${foundNote.title}`);
-
-		console.log(chalk.green.inverse("title: ", chalk.yellow.bold(note.title)));
-		// console.log(`body: ${foundNote.body}`);
-
-		console.log(chalk.green.inverse("body: ", chalk.white.bold(note.body)));
-	} else console.log(chalk.red.inverse.bold("No note found!"));
+		console.log(chalk.yellow.bold("Your Note:"));
+		console.log(chalk.inverse.bold(note.title));
+		console.log(note.body);
+	} else console.log(chalk.red.inverse.bold("Note not found!"));
 };
 
 module.exports = {
