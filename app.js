@@ -58,7 +58,7 @@ yargs.command({
 	},
 	//! ES6 method definition syntax
 	handler(argv) {
-		notes.removeNotes(argv.title);
+		notes.removeNote(argv.title);
 		// log(chalk.blue.bold(`${argv.title} was successfully removed!`));
 	},
 });
@@ -74,8 +74,8 @@ yargs.command({
 			type: "string",
 		},
 	},
-	handler() {
-		log(chalk.blue.bold("Note content"));
+	handler(argv) {
+		notes.readNote(argv.title);
 	},
 });
 

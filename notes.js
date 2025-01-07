@@ -47,7 +47,7 @@ const addNote = (title, body) => {
 };
 
 // API for removing notes
-const removeNotes = (title) => {
+const removeNote = (title) => {
 	const notes = loadNotes();
 	const remainedNotes = notes.filter((note) => note.title !== title);
 	//! use "remainedNotes.length < notes.length" as alternative condiction
@@ -68,12 +68,28 @@ const listNotes = () => {
 	} else console.log(chalk.red.bold("There is no notes!"));
 };
 
-const readNotes = () => {};
+const readNote = (title) => {
+	const notes = loadNotes();
+	console.log(notes);
+
+	const note = notes.find((note) => note.title === title);
+	console.log(note);
+
+	if (note) {
+		console.log(chalk.white.inverse("Your Note:"));
+		// console.log(`title: ${foundNote.title}`);
+
+		console.log(chalk.green.inverse("title: ", chalk.yellow.bold(note.title)));
+		// console.log(`body: ${foundNote.body}`);
+
+		console.log(chalk.green.inverse("body: ", chalk.white.bold(note.body)));
+	} else console.log(chalk.red.inverse.bold("No note found!"));
+};
 
 module.exports = {
 	getNotes: getNotes,
 	addNote: addNote,
-	removeNotes: removeNotes,
+	removeNote: removeNote,
 	listNotes: listNotes,
-	readNotes: readNotes,
+	readNote: readNote,
 };
