@@ -1,10 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
 
-const getNotes = () => {
-	return "Your notes...";
-};
-
 // Load ALL THE NOTES from the file
 const loadNotes = () => {
 	try {
@@ -81,7 +77,6 @@ const readNote = (title) => {
 };
 
 module.exports = {
-	getNotes: getNotes,
 	addNote: addNote,
 	removeNote: removeNote,
 	listNotes: listNotes,
