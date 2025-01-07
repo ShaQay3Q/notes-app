@@ -28,6 +28,8 @@ const addNote = (title, body) => {
 
 	// const douplicateNotes = notes.filter((note) => note.title === title); // keep iterating over the whole array even after finding the match
 	const douplicateNote = notes.find((note) => note.title === title); // stop itering over the array after it found the match
+	// in a case douplicateNote doesn't return any result, the return value is "undefined"
+	// ==> if (douplicateNote === undefined) works
 
 	if (!douplicateNote) {
 		notes.push({
@@ -66,9 +68,12 @@ const listNotes = () => {
 	} else console.log(chalk.red.bold("There is no notes!"));
 };
 
+const readNotes = () => {};
+
 module.exports = {
 	getNotes: getNotes,
 	addNote: addNote,
 	removeNotes: removeNotes,
 	listNotes: listNotes,
+	readNotes: readNotes,
 };
